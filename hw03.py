@@ -1,6 +1,6 @@
 """
-Name: (put your name here)
-Peers: (add any collaborators)
+Name: (Diane Okong'o)
+Peers: (Alice)
 References: (anything you checked to solve this)
 """
 
@@ -24,12 +24,23 @@ def read_five_ints():
     """
     for idx in range ( len(grades) ):
         # for each idx in 0, 1,... 4 do:
+        in_str = input("Give me the next grade in [0 to 10]: ")
         # check if the input is not a digit print error
+        if not in_str.isdigit():
+           print("Error in  read_five_ints: input string is not for an integer")
+           exit()
         # convert to int
+        m = int(in_str)
         # check if the int is not in the interval [0 to 10] print error
+        if m < 0 or m > 10:
+            print("Error in read_five_ints: input integer outside of range")
+            exit()
         # add the int to grades at index idx
+        grades[idx] = m
+        
+        
+        
 
-        pass
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -45,7 +56,25 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
+    n = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
+    if n == "a":
+        print("picked: Mean")
+        return statistics.mean(grades)
+                  
+    if n == "b":
+        print("picked: Median")
+        return statistics.mode(grades)
+                  
+    if n == "c":
+        print("picked: Mode")
+        return statistics.mode(grades)
+                  
+    else:
+        print("Error in pick_averaging_method: incorrect option picked")
+        exit()
+              
+              
+              
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -58,7 +87,14 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+    n = input("Pick '1' for print average, or '2' for plot average: ")
+    if n == "1":
+        print_list_and_average(average)
+    elif n == "2":
+        plot_grades(average)
+    else:
+        print("Error in pick_visualization: incorrect option picked")
+        exit()
 
 
 # ---------------------------------------
